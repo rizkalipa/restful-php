@@ -1,11 +1,13 @@
 <?php
 
+require_once __DIR__ . "/../config/Const.php";
+
 class Database {
 
-    private $host = 'db';
-    private $username = 'root';
-    private $password = 'example';
-    private $dbName = 'transaction_app';
+    private $host = HOSTNAME;
+    private $username = USERNAME;
+    private $password = PASSWORD;
+    private $dbName = DATABASE;
     public $conn;
 
     public function __construct() {
@@ -43,7 +45,7 @@ class Database {
         list($invoiceId, $itemName, $amount, $paymentType, $customerName, $merchantId, $referencesId, $vaNumber, $status) = $bindParam;
         $stmt->execute();
 
-        return $stmt->affected_rows;
+        return $stmt->insert_id;
     }
 
     public function update($query, $bindParam, $typeBind) {

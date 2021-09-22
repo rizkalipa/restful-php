@@ -1,9 +1,11 @@
 <?php
 
-$servername = "db";
-$username = "root";
-$password = "example";
-$dbName = "transaction_app";
+require_once __DIR__ . "/../config/Const.php";
+
+$servername = HOSTNAME;
+$username = USERNAME;
+$password = PASSWORD;
+$dbName = DATABASE;
 
 $conn = new mysqli($servername, $username, $password, '', '3306');
 

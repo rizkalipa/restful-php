@@ -1,7 +1,7 @@
 <?php
 
-require_once "./model/Transaction.php";
-require_once "./config/Response.php";
+require_once __DIR__ . "./model/Transaction.php";
+require_once __DIR__ . "./config/Response.php";
 
 $transaction = new Transaction();
 
