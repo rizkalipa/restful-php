@@ -1,6 +1,6 @@
 <?php
 
-define("PROJECT_ROOT_PATH", __DIR__ . '/../');
+define("PROJECT_ROOT_PATH", __DIR__ . '/src/');
 
 define("HOSTNAME", "db");
 
