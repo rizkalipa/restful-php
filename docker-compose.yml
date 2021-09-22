@@ -5,6 +5,7 @@ services:
     build:
        context: .
        dockerfile: Dockerfile
+    container_name: restful-app
     ports:
       - 80:80
     volumes:
@@ -14,6 +15,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: example
+    container_name: restful-db
     ports:
       - 3306:3306
 
