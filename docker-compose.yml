@@ -7,7 +7,7 @@ services:
        dockerfile: Dockerfile
     container_name: restful-app
     ports:
-      - 80:80
+      - 81:80
     volumes:
       - ./:/var/www/html/
   db:
@@ -17,10 +17,10 @@ services:
       MYSQL_ROOT_PASSWORD: example
     container_name: restful-db
     ports:
-      - 3306:3306
+      - 3307:3306
 
   adminer:
     image: adminer
     restart: always
     ports:
-      - 8080:8080
+      - 8081:8080
