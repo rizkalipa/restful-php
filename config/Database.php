@@ -20,20 +20,24 @@ class Database {
     }
 
     public function select($query = '', $bindParam = [], $typeBind = '') {
-        if (count($bindParam)) {
-            $stmt = $this->conn->prepare($query);
-            $stmt->bind_param($typeBind, $referenceId, $merchantId);
-            list($referenceId, $merchantId) = $bindParam;
-            $stmt->execute();
-            $result = $stmt->get_result();
-        } else {
-            $result = $this->conn->query($query);
-        }
+        try {
+            if (count($bindParam)) {
+                $stmt = $this->conn->prepare($query);
+                $stmt->bind_param($typeBind, $referenceId, $merchantId);
+                list($referenceId, $merchantId) = $bindParam;
+                $stmt->execute();
+                $result = $stmt->get_result();
+            } else {
+                $result = $this->conn->query($query);
+            }
 
-        $data = [];
+            $data = [];
 
-        while ($row = $result->fetch_assoc()) {
-            $data[] = $row;
+            while ($row = $result->fetch_assoc()) {
+                $data[] = $row;
+            }
+        } catch (Error $e) {
+            $data = [];
         }
 
         return $data;
